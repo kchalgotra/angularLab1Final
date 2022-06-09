@@ -11,8 +11,14 @@ export class CarService {
   constructor(private messageService: MessageService) { }
 
   getCars(): Observable<Car[]> {
-    const cars = of(CARS);
+    const heroes = of(CARS);
     this.messageService.add('HeroService: fetched heroes');
-    return cars;
+    return heroes;
+  }
+
+  getCar(id: number): Observable<Car> {
+    const car = CARS.find(h => h.id === id)!;
+    this.messageService.add('CarService: fetched cars id=${id}');
+    return of(car);
   }
 }

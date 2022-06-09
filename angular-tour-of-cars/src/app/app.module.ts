@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import { FormsModule } from '@angular/forms';
 import { CarDetailComponent } from './car-detail/car-detail.component';
-import { MessagesComponent } from './messages/messages.component'; 
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component'; 
 
 
 @NgModule({
@@ -14,14 +15,14 @@ import { MessagesComponent } from './messages/messages.component';
     AppComponent,
     CarsComponent,
     CarDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
-    //AppRoutingModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
