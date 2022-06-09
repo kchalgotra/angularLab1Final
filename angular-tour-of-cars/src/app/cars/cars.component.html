@@ -3,18 +3,19 @@
   <li *ngFor="let car of cars">
     <button [class.selected]="car === selectedCar" type="button" (click)="onSelect(car)">
       <span class="badge">{{car.id}}</span>
-      <span class="name">{{car  .name}}</span>
+      <span class="name">{{car.name}}</span>
     </button>
   </li>
 </ul>
 
+<app-car-detail [car]="selectedCar"></app-car-detail>
 
-
-<div *ngIf="selectedCar">
+<!-- <div *ngIf="selectedCar">
   <h2>{{selectedCar.name | uppercase}} Details</h2>
   <div>id: {{selectedCar.id}}</div>
   <div>
     <label for="car-name">Car name: </label>
     <input id="car-name" [(ngModel)]="selectedCar.name" placeholder="name">
   </div>
-</div>
+</div> -->
+
