@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../car';
-import { CARS } from '../mock-cars';
+import { CarService } from '../car.service';
+import { MessageService } from '../message.service';
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
@@ -8,18 +9,27 @@ import { CARS } from '../mock-cars';
 })
 export class CarsComponent implements OnInit {
 
-  cars = CARS;
+
   selectedCar?: Car;
+  cars: Car[] = [];
+  
+  
   
 
-
-  constructor() { }
+  constructor(private carService: CarService, private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.getCars()
   }
 
   onSelect(car: Car): void {
     this.selectedCar = car;
+    this.messageService.add(`HeroesComponent: Selected hero id=${car.id}`);
+  }
+
+  getCars(): void {
+    this.carService.getCars()
+      .subscribe(cars => this.cars = cars);
   }
 
 }
